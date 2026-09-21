@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="StreetEats - Real-time local food truck locator, GPS tracking, live daily menus, and vendor ratings.">
     <title>StreetEats | Real-Time Food Truck Radar & Menus</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -48,35 +49,29 @@
         <div class="container">
             <h2 id="map" class="section-title">Live Food Truck Radar</h2>
             <div class="split-view">
-                <div class="mock-map" tabindex="0" role="region" aria-label="Interactive Food Truck Location Radar Map">
-                    <div class="map-interactive-container">
-                        <div class="map-ping-pulse" style="top: 35%; left: 45%;" title="Smash & Grab Burgers">📍</div>
-                        <div class="map-ping-pulse" style="top: 60%; left: 70%;" title="Street Tacos Express">📍</div>
-                        <div class="map-ping-pulse scheduled" style="top: 25%; left: 20%;" title="The Sweet Spot Desserts">📍</div>
-                        <div class="map-overlay-info">
-                            <span class="map-icon" aria-hidden="true">📡</span>
-                            <p><strong>GPS Radar Active</strong></p>
-                            <p class="text-muted">3 Local Vendors Active in Your Radius</p>
-                        </div>
-                    </div>
-                </div>
+                <div id="leaflet-map" class="real-map" tabindex="0" role="region" aria-label="Interactive Food Truck OpenStreetMap Radar"></div>
+                
                 <div class="truck-list">
                     <h3>Nearby Right Now</h3>
-                    <div class="truck-item" tabindex="0">
+                    <p class="text-muted">Click any food truck to locate it on the map:</p>
+                    
+                    <div class="truck-item sfx-trigger" tabindex="0" data-truck-id="smash-grab" data-lat="34.0430" data-lng="-118.2673">
                         <div>
                             <strong>Smash & Grab Burgers</strong>
                             <p class="text-muted">Night Market DTLA • 0.2 mi</p>
                         </div>
                         <span class="status-open">Open</span>
                     </div>
-                    <div class="truck-item" tabindex="0">
+
+                    <div class="truck-item sfx-trigger" tabindex="0" data-truck-id="fuego-tacos" data-lat="34.0782" data-lng="-118.2606">
                         <div>
                             <strong>Street Tacos Express</strong>
                             <p class="text-muted">Echo Park Lake • 0.8 mi</p>
                         </div>
                         <span class="status-open">Open</span>
                     </div>
-                    <div class="truck-item" tabindex="0">
+
+                    <div class="truck-item sfx-trigger" tabindex="0" data-truck-id="sweet-spot" data-lat="34.0537" data-lng="-118.2427">
                         <div>
                             <strong>The Sweet Spot Desserts</strong>
                             <p class="text-muted">Grand Ave • Opening 5 PM</p>
@@ -121,6 +116,7 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="script.js"></script>
 </body>
 </html>
