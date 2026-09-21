@@ -3,23 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover local food trucks, track real-time locations, and view daily menus near you.">
-    <title>StreetEats | Find & Track Local Food Trucks (60% Build)</title>
+    <meta name="description" content="StreetEats - Real-time local food truck locator, GPS tracking, live daily menus, and vendor ratings.">
+    <title>StreetEats | Real-Time Food Truck Radar & Menus</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- WIP Banner -->
-    <div class="wip-banner" role="region" aria-label="Development Progress Banner">
-        <span>🚧 Progress Report: 60% Complete (Multi-Page Structure, Keyboard Accessibility & Smooth Transitions Active)</span>
-    </div>
-
     <header>
         <nav class="navbar" aria-label="Main Navigation">
             <a href="index.html" class="logo" aria-label="StreetEats Home">
-                🚚 StreetEats <span class="badge-wip">v0.6</span>
+                🚚 StreetEats
             </a>
             
             <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
@@ -29,7 +24,7 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html" class="nav-item active" aria-current="page">Home</a></li>
                 <li><a href="featured.html" class="nav-item">Featured Trucks</a></li>
-                <li><a href="#map" class="nav-item">Find Radar</a></li>
+                <li><a href="#map" class="nav-item">Live Radar</a></li>
             </ul>
 
             <div class="auth-btns">
@@ -45,19 +40,24 @@
         <section class="hero">
             <div class="hero-content">
                 <h1 class="animated-text">Follow the Flavor in Real-Time!</h1>
-                <p>Discover local food trucks, track live GPS locations, and view daily menus near you.</p>
-                <a href="#map" class="btn btn-solid btn-hero sfx-trigger">Explore Map</a>
+                <p>Discover local food trucks, track live GPS locations, and explore fresh daily menus near you.</p>
+                <a href="#map" class="btn btn-solid btn-hero sfx-trigger">Explore Radar Map</a>
             </div>
         </section>
 
         <div class="container">
-            <h2 id="map" class="section-title">Live Truck Radar</h2>
+            <h2 id="map" class="section-title">Live Food Truck Radar</h2>
             <div class="split-view">
-                <div class="mock-map" tabindex="0" role="region" aria-label="Interactive Food Truck Location Map">
-                    <div class="map-placeholder-content">
-                        <span class="map-icon" aria-hidden="true">📍</span>
-                        <p><strong>Interactive GPS Map Module</strong></p>
-                        <p class="text-muted">[ 60% Build Placeholder: Live API Integration Pending ]</p>
+                <div class="mock-map" tabindex="0" role="region" aria-label="Interactive Food Truck Location Radar Map">
+                    <div class="map-interactive-container">
+                        <div class="map-ping-pulse" style="top: 35%; left: 45%;" title="Smash & Grab Burgers">📍</div>
+                        <div class="map-ping-pulse" style="top: 60%; left: 70%;" title="Street Tacos Express">📍</div>
+                        <div class="map-ping-pulse scheduled" style="top: 25%; left: 20%;" title="The Sweet Spot Desserts">📍</div>
+                        <div class="map-overlay-info">
+                            <span class="map-icon" aria-hidden="true">📡</span>
+                            <p><strong>GPS Radar Active</strong></p>
+                            <p class="text-muted">3 Local Vendors Active in Your Radius</p>
+                        </div>
                     </div>
                 </div>
                 <div class="truck-list">
@@ -111,13 +111,13 @@
             <div class="footer-col">
                 <h3>For Vendors</h3>
                 <ul>
-                    <li><a href="#" class="sfx-trigger">Owner Dashboard (WIP)</a></li>
+                    <li><a href="#" class="sfx-trigger">Vendor Portal</a></li>
                     <li><a href="#" class="sfx-trigger">Register Your Truck</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 StreetEats Web Application. 60% Midterm Deliverable.
+            &copy; 2026 StreetEats Web Application. All Rights Reserved.
         </div>
     </footer>
 
