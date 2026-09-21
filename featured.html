@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse featured food trucks, ratings, menus, and special offerings on StreetEats.">
+    <title>StreetEats | Featured Trucks (60% Build)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="wip-banner" role="region" aria-label="Development Progress Banner">
+        <span>🚧 Progress Report: 60% Complete (Page 2: Fully Responsive & Animated)</span>
+    </div>
+
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="index.html" class="logo" aria-label="StreetEats Home">
+                🚚 StreetEats <span class="badge-wip">v0.6</span>
+            </a>
+            
+            <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-item">Home</a></li>
+                <li><a href="featured.html" class="nav-item active" aria-current="page">Featured Trucks</a></li>
+                <li><a href="index.html#map" class="nav-item">Find Radar</a></li>
+            </ul>
+
+            <div class="auth-btns">
+                <button id="sound-toggle" class="btn btn-outline sound-btn" aria-label="Toggle Sound Effects">🔊 SFX On</button>
+                <a href="#" class="btn btn-outline sfx-trigger">Log In</a>
+                <a href="#" class="btn btn-solid sfx-trigger">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-transition container">
+
+        <header class="page-header">
+            <h1 class="section-title">Top Rated Mobile Kitchens</h1>
+            <p class="text-muted text-center">Hand-picked street food vendors with live status updates and verified customer ratings.</p>
+        </header>
+
+        <div class="grid-3">
+            <article class="card fade-in-section" tabindex="0">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?auto=format&fit=crop&w=600&q=80" alt="Juicy double smashed cheeseburger with melted cheddar and signature sauce on a toasted bun" class="card-img animated-img">
+                </div>
+                <div class="card-header">
+                    <span class="badge">Popular</span>
+                    <h2>Smash & Grab</h2>
+                    <p>American • Burgers • Fries</p>
+                </div>
+                <div class="card-body">
+                    <div class="rating" aria-label="Rating: 5 out of 5 stars">★★★★★ (128 Reviews)</div>
+                    <p>Serving up double smashed beef patties, house-made sauce, and loaded cheese fries.</p>
+                    <button class="btn btn-outline btn-full sfx-trigger modal-trigger" aria-haspopup="dialog">View Menu</button>
+                </div>
+            </article>
+
+            <article class="card fade-in-section" tabindex="0">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" alt="Three authentic Mexican street tacos topped with cilantro, diced onions, and lime wedge" class="card-img animated-img">
+                </div>
+                <div class="card-header">
+                    <span class="badge">Trending</span>
+                    <h2>Fuego Street Tacos</h2>
+                    <p>Mexican • Street Food</p>
+                </div>
+                <div class="card-body">
+                    <div class="rating" aria-label="Rating: 4 out of 5 stars">★★★★☆ (95 Reviews)</div>
+                    <p>Authentic street tacos, birria ramen, and fresh churros made daily on location.</p>
+                    <button class="btn btn-outline btn-full sfx-trigger modal-trigger" aria-haspopup="dialog">View Menu</button>
+                </div>
+            </article>
+
+            <article class="card fade-in-section" tabindex="0">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80" alt="Iced ceremonial matcha latte with soft-serve matcha ice cream in a glass" class="card-img animated-img">
+                </div>
+                <div class="card-header">
+                    <span class="badge">New</span>
+                    <h2>The Matcha Cart</h2>
+                    <p>Beverages • Desserts</p>
+                </div>
+                <div class="card-body">
+                    <div class="rating" aria-label="Rating: 5 out of 5 stars">★★★★★ (42 Reviews)</div>
+                    <p>Ceremonial grade matcha drinks, soft-serve ice cream, and Japanese pastries.</p>
+                    <button class="btn btn-outline btn-full sfx-trigger modal-trigger" aria-haspopup="dialog">View Menu</button>
+                </div>
+            </article>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>StreetEats</h3>
+                <p>Connecting hungry locals with the best mobile food vendors in town.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html" class="sfx-trigger">Home Radar</a></li>
+                    <li><a href="featured.html" class="sfx-trigger">Featured Trucks</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>For Vendors</h3>
+                <ul>
+                    <li><a href="#" class="sfx-trigger">Owner Dashboard (WIP)</a></li>
+                    <li><a href="#" class="sfx-trigger">Register Your Truck</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 StreetEats Web Application. 60% Midterm Deliverable.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
