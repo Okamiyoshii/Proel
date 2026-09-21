@@ -3,22 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Browse featured food trucks, ratings, menus, and special offerings on StreetEats.">
-    <title>StreetEats | Featured Trucks (60% Build)</title>
+    <meta name="description" content="Browse featured food trucks, ratings, interactive menus, and special offerings on StreetEats.">
+    <title>StreetEats | Featured Food Trucks & Menus</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="wip-banner" role="region" aria-label="Development Progress Banner">
-        <span>🚧 Progress Report: 60% Complete (Page 2: Fully Responsive & Animated)</span>
-    </div>
-
     <header>
         <nav class="navbar" aria-label="Main Navigation">
             <a href="index.html" class="logo" aria-label="StreetEats Home">
-                🚚 StreetEats <span class="badge-wip">v0.6</span>
+                🚚 StreetEats
             </a>
             
             <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
@@ -28,7 +24,7 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html" class="nav-item">Home</a></li>
                 <li><a href="featured.html" class="nav-item active" aria-current="page">Featured Trucks</a></li>
-                <li><a href="index.html#map" class="nav-item">Find Radar</a></li>
+                <li><a href="index.html#map" class="nav-item">Live Radar</a></li>
             </ul>
 
             <div class="auth-btns">
@@ -43,7 +39,7 @@
 
         <header class="page-header">
             <h1 class="section-title">Top Rated Mobile Kitchens</h1>
-            <p class="text-muted text-center">Hand-picked street food vendors with live status updates and verified customer ratings.</p>
+            <p class="text-muted text-center">Hand-picked street food vendors with live status updates, verified customer ratings, and interactive menus.</p>
         </header>
 
         <div class="grid-3">
@@ -59,7 +55,7 @@
                 <div class="card-body">
                     <div class="rating" aria-label="Rating: 5 out of 5 stars">★★★★★ (128 Reviews)</div>
                     <p>Serving up double smashed beef patties, house-made sauce, and loaded cheese fries.</p>
-                    <button class="btn btn-outline btn-full sfx-trigger modal-trigger" aria-haspopup="dialog">View Menu</button>
+                    <button class="btn btn-outline btn-full sfx-trigger modal-trigger" data-vendor="Smash & Grab" data-items="Double Smash Burger ($12), Truffle Cheese Fries ($7), Craft Soda ($4)">View Menu</button>
                 </div>
             </article>
 
@@ -75,7 +71,7 @@
                 <div class="card-body">
                     <div class="rating" aria-label="Rating: 4 out of 5 stars">★★★★☆ (95 Reviews)</div>
                     <p>Authentic street tacos, birria ramen, and fresh churros made daily on location.</p>
-                    <button class="btn btn-outline btn-full sfx-trigger modal-trigger" aria-haspopup="dialog">View Menu</button>
+                    <button class="btn btn-outline btn-full sfx-trigger modal-trigger" data-vendor="Fuego Street Tacos" data-items="Street Taco Trio ($10), Birria Ramen Bowl ($14), Cinnamon Churros ($6)">View Menu</button>
                 </div>
             </article>
 
@@ -91,12 +87,22 @@
                 <div class="card-body">
                     <div class="rating" aria-label="Rating: 5 out of 5 stars">★★★★★ (42 Reviews)</div>
                     <p>Ceremonial grade matcha drinks, soft-serve ice cream, and Japanese pastries.</p>
-                    <button class="btn btn-outline btn-full sfx-trigger modal-trigger" aria-haspopup="dialog">View Menu</button>
+                    <button class="btn btn-outline btn-full sfx-trigger modal-trigger" data-vendor="The Matcha Cart" data-items="Ceremonial Matcha Latte ($7), Matcha Soft Serve Cone ($6), Strawberry Taiyaki ($5)">View Menu</button>
                 </div>
             </article>
         </div>
 
     </main>
+
+    <!-- Interactive Menu Modal -->
+    <div id="menu-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Close menu modal">&times;</button>
+            <h2 id="modal-title">Vendor Menu</h2>
+            <ul id="modal-items" class="modal-list"></ul>
+            <button class="btn btn-solid btn-full sfx-trigger" id="modal-order-btn">Order Online Now</button>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -114,13 +120,13 @@
             <div class="footer-col">
                 <h3>For Vendors</h3>
                 <ul>
-                    <li><a href="#" class="sfx-trigger">Owner Dashboard (WIP)</a></li>
+                    <li><a href="#" class="sfx-trigger">Vendor Portal</a></li>
                     <li><a href="#" class="sfx-trigger">Register Your Truck</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 StreetEats Web Application. 60% Midterm Deliverable.
+            &copy; 2026 StreetEats Web Application. All Rights Reserved.
         </div>
     </footer>
 
