@@ -1,122 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="StreetEats - Real-time local food truck locator, GPS tracking, live daily menus, and vendor ratings.">
-    <title>StreetEats | Real-Time Food Truck Radar & Menus</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVG Text Art - Sonnet 18</title>
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  background: #f2e6e3;
+  display: flex;
+  justify-content: center;
+}
+svg {
+  display: block;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+</style>
 </head>
 <body>
-
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <header>
-        <nav class="navbar" aria-label="Main Navigation">
-            <a href="index.html" class="logo" aria-label="StreetEats Home">
-                🚚 StreetEats
-            </a>
-            
-            <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
-                ☰
-            </button>
-
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html" class="nav-item active" aria-current="page">Home</a></li>
-                <li><a href="featured.html" class="nav-item">Featured Trucks</a></li>
-                <li><a href="#map" class="nav-item">Live Radar</a></li>
-            </ul>
-
-            <div class="auth-btns">
-                <button id="sound-toggle" class="btn btn-outline sound-btn" aria-label="Toggle Sound Effects">🔊 SFX On</button>
-                <a href="#" class="btn btn-outline sfx-trigger">Log In</a>
-                <a href="#" class="btn btn-solid sfx-trigger">Sign Up</a>
-            </div>
-        </nav>
-    </header>
-
-    <main id="main-content" class="page-transition">
-        
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="animated-text">Follow the Flavor in Real-Time!</h1>
-                <p>Discover local food trucks, track live GPS locations, and explore fresh daily menus near you.</p>
-                <a href="#map" class="btn btn-solid btn-hero sfx-trigger">Explore Radar Map</a>
-            </div>
-        </section>
-
-        <div class="container">
-            <h2 id="map" class="section-title">Live Food Truck Radar</h2>
-            <div class="split-view">
-                <div id="leaflet-map" class="real-map" tabindex="0" role="region" aria-label="Interactive Food Truck OpenStreetMap Radar"></div>
-                
-                <div class="truck-list">
-                    <h3>Nearby Right Now</h3>
-                    <p class="text-muted">Click any food truck to locate it on the map:</p>
-                    
-                    <div class="truck-item sfx-trigger" tabindex="0" data-truck-id="smash-grab" data-lat="34.0430" data-lng="-118.2673">
-                        <div>
-                            <strong>Smash & Grab Burgers</strong>
-                            <p class="text-muted">Night Market DTLA • 0.2 mi</p>
-                        </div>
-                        <span class="status-open">Open</span>
-                    </div>
-
-                    <div class="truck-item sfx-trigger" tabindex="0" data-truck-id="fuego-tacos" data-lat="34.0782" data-lng="-118.2606">
-                        <div>
-                            <strong>Street Tacos Express</strong>
-                            <p class="text-muted">Echo Park Lake • 0.8 mi</p>
-                        </div>
-                        <span class="status-open">Open</span>
-                    </div>
-
-                    <div class="truck-item sfx-trigger" tabindex="0" data-truck-id="sweet-spot" data-lat="34.0537" data-lng="-118.2427">
-                        <div>
-                            <strong>The Sweet Spot Desserts</strong>
-                            <p class="text-muted">Grand Ave • Opening 5 PM</p>
-                        </div>
-                        <span class="status-scheduled">Scheduled</span>
-                    </div>
-                </div>
-            </div>
-
-            <section class="cta-section fade-in-section">
-                <h2>Looking for Detailed Menus & Reviews?</h2>
-                <p>Explore our full roster of verified local vendors, popular specialties, and active schedules.</p>
-                <a href="featured.html" class="btn btn-solid btn-hero sfx-trigger">View All Featured Trucks</a>
-            </section>
-        </div>
-
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h3>StreetEats</h3>
-                <p>Connecting hungry locals with the best mobile food vendors in town.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html" class="sfx-trigger">Home Radar</a></li>
-                    <li><a href="featured.html" class="sfx-trigger">Featured Trucks</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>For Vendors</h3>
-                <ul>
-                    <li><a href="#" class="sfx-trigger">Vendor Portal</a></li>
-                    <li><a href="#" class="sfx-trigger">Register Your Truck</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 StreetEats Web Application. All Rights Reserved.
-        </div>
-    </footer>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="script.js"></script>
+<svg width="900" height="780" viewBox="0 0 900 780" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path id="h0" d="M 450.0,227.8 C 450.0,43.5 785.0,43.5 785.0,261.2 C 785.0,445.5 584.0,546.0 450.0,680.0 C 316.0,546.0 115.0,445.5 115.0,261.2 C 115.0,43.5 450.0,43.5 450.0,227.8 Z"/>
+<path id="h1" d="M 450.0,247.7 C 450.0,94.8 728.0,94.8 728.0,275.5 C 728.0,428.4 561.2,511.8 450.0,623.0 C 338.8,511.8 172.0,428.4 172.0,275.5 C 172.0,94.8 450.0,94.8 450.0,247.7 Z"/>
+<path id="h2" d="M 450.0,267.3 C 450.0,145.2 672.0,145.2 672.0,289.5 C 672.0,411.6 538.8,478.2 450.0,567.0 C 361.2,478.2 228.0,411.6 228.0,289.5 C 228.0,145.2 450.0,145.2 450.0,267.3 Z"/>
+<path id="h3" d="M 450.0,286.2 C 450.0,193.8 618.0,193.8 618.0,303.0 C 618.0,395.4 517.2,445.8 450.0,513.0 C 382.8,445.8 282.0,395.4 282.0,303.0 C 282.0,193.8 450.0,193.8 450.0,286.2 Z"/>
+<path id="h4" d="M 450.0,304.4 C 450.0,240.6 566.0,240.6 566.0,316.0 C 566.0,379.8 496.4,414.6 450.0,461.0 C 403.6,414.6 334.0,379.8 334.0,316.0 C 334.0,240.6 450.0,240.6 450.0,304.4 Z"/>
+<path id="h5" d="M 450.0,321.9 C 450.0,285.6 516.0,285.6 516.0,328.5 C 516.0,364.8 476.4,384.6 450.0,411.0 C 423.6,384.6 384.0,364.8 384.0,328.5 C 384.0,285.6 450.0,285.6 450.0,321.9 Z"/>
+</defs>
+<rect width="900" height="780" fill="#fff7f5"/>
+<text font-family="Georgia, serif" font-size="17" font-style="italic" fill="#b3123f"><textPath href="#h0" textLength="2112" lengthAdjust="spacing">Shall I compare thee to a summer's day? Thou art more lovely and more temperate: Rough winds do shake the darling buds of May, And summer's lease hath all too short a date; Sometime too hot the eye of heaven shines, And often is his gold</textPath></text>
+<text font-family="Georgia, serif" font-size="16" font-style="italic" fill="#c8294f"><textPath href="#h1" textLength="1752" lengthAdjust="spacing">complexion dimm'd; And every fair from fair sometime declines, By chance or nature's changing course untrimm'd; But thy eternal summer shall not fade, Nor lose possession of that fair thou ow'st; Nor shall</textPath></text>
+<text font-family="Georgia, serif" font-size="15" font-style="italic" fill="#d9475f"><textPath href="#h2" textLength="1398" lengthAdjust="spacing">death brag thou wander'st in his shade, When in eternal lines to time thou grow'st: So long as men can breathe or eyes can see, So long lives this, and this gives life to thee.</textPath></text>
+<text font-family="Georgia, serif" font-size="14" font-style="italic" fill="#e8687a"><textPath href="#h3" textLength="1056" lengthAdjust="spacing">Shall I compare thee to a summer's day? Thou art more lovely and more temperate: Rough winds do shake the darling buds of May, And summer's</textPath></text>
+<text font-family="Georgia, serif" font-size="13" font-style="italic" fill="#f08a96"><textPath href="#h4" textLength="727" lengthAdjust="spacing">lease hath all too short a date; Sometime too hot the eye of heaven shines, And often is his gold</textPath></text>
+<text font-family="Georgia, serif" font-size="12" font-style="italic" fill="#f6aab2"><textPath href="#h5" textLength="411" lengthAdjust="spacing">complexion dimm'd; And every fair from fair sometime declines, By</textPath></text>
+<text x="450" y="352" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-weight="bold" fill="#8c0f33">Sonnet 18</text>
+<text x="450" y="382" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#8c0f33">William Shakespeare</text>
+<text x="450" y="735" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-style="italic" fill="#8c0f33">So long lives this, and this gives life to thee.</text>
+</svg>
 </body>
 </html>
