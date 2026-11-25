@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML5 Canvas Graphical Art</title>
+<style>
+body {
+  margin: 0;
+  padding: 30px 20px;
+  background: #faf6f3;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #3b2f2b;
+}
+h1 {
+  text-align: center;
+  margin: 0 0 30px;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+figure {
+  margin: 0;
+  text-align: center;
+}
+canvas {
+  display: block;
+  border: 5px solid #54b3b1;
+  box-sizing: content-box;
+}
+figcaption {
+  margin-top: 10px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<h1>HTML5 Canvas Graphical Art</h1>
+<div class="gallery" id="gallery"></div>
+<script>
+function circle(c, x, y, r, color) {
+  c.beginPath();
+  c.arc(x, y, r, 0, Math.PI * 2);
+  c.fillStyle = color;
+  c.fill();
+}
+
+function poly(c, points, color) {
+  c.beginPath();
+  c.moveTo(points[0][0], points[0][1]);
+  for (let i = 1; i < points.length; i++) {
+    c.lineTo(points[i][0], points[i][1]);
+  }
+  c.closePath();
+  c.fillStyle = color;
+  c.fill();
+}
+
+function rrect(c, x, y, w, h, r, color) {
+  c.beginPath();
+  c.moveTo(x + r, y);
+  c.arcTo(x + w, y, x + w, y + h, r);
+  c.arcTo(x + w, y + h, x, y + h, r);
+  c.arcTo(x, y + h, x, y, r);
+  c.arcTo(x, y, x + w, y, r);
+  c.closePath();
+  c.fillStyle = color;
+  c.fill();
+}
+
+function line(c, x1, y1, x2, y2, color, width) {
+  c.beginPath();
+  c.moveTo(x1, y1);
+  c.lineTo(x2, y2);
+  c.strokeStyle = color;
+  c.lineWidth = width;
+  c.lineCap = "round";
+  c.stroke();
+}
+
+function rocket(c) {
+  c.fillStyle = "#1f2a44";
+  c.fillRect(0, 0, 200, 200);
+  const stars = [[25, 30], [170, 25], [150, 70], [30, 110], [175, 130], [55, 170], [160, 180], [20, 60]];
+  stars.forEach(function (s) { circle(c, s[0], s[1], 2.5, "#ffffff"); });
+  c.beginPath();
+  c.moveTo(85, 125);
+  c.quadraticCurveTo(100, 185, 115, 125);
+  c.fillStyle = "#f58a2b";
+  c.fill();
+  c.beginPath();
+  c.moveTo(92, 125);
+  c.quadraticCurveTo(100, 160, 108, 125);
+  c.fillStyle = "#f6c755";
+  c.fill();
+  poly(c, [[67, 95], [40, 142], [67, 125]], "#ec4540");
+  poly(c, [[133, 95], [160, 142], [133, 125]], "#ec4540");
+  c.beginPath();
+  c.moveTo(100, 22);
+  c.quadraticCurveTo(142, 58, 135, 125);
+  c.lineTo(65, 125);
+  c.quadraticCurveTo(58, 58, 100, 22);
+  c.closePath();
+  c.fillStyle = "#f2f2f2";
+  c.fill();
+  c.beginPath();
+  c.moveTo(100, 22);
+  c.quadraticCurveTo(120, 38, 128, 60);
+  c.lineTo(72, 60);
+  c.quadraticCurveTo(80, 38, 100, 22);
+  c.closePath();
+  c.fillStyle = "#ec4540";
+  c.fill();
+  circle(c, 100, 88, 17, "#7f685f");
+  circle(c, 100, 88, 12, "#54b3b1");
+  rrect(c, 65, 118, 70, 10, 4, "#bfb2ac");
+}
+
+function house(c) {
+  c.fillStyle = "#bfe6f5";
+  c.fillRect(0, 0, 200, 200);
+  circle(c, 168, 36, 18, "#f6c755");
+  c.fillStyle = "#7cc27a";
+  c.fillRect(0, 160, 200, 40);
+  c.fillStyle = "#c0392b";
+  c.fillRect(124, 48, 16, 36);
+  c.fillStyle = "#f4b183";
+  c.fillRect(48, 90, 104, 72);
+  poly(c, [[36, 94], [100, 38], [164, 94]], "#c0392b");
+  c.fillStyle = "#7f685f";
+  c.fillRect(88, 116, 26, 46);
+  circle(c, 107, 140, 2.5, "#f6c755");
+  c.fillStyle = "#d7ecf8";
+  c.fillRect(58, 106, 22, 22);
+  c.fillRect(122, 106, 22, 22);
+  c.strokeStyle = "#ffffff";
+  c.lineWidth = 2;
+  c.strokeRect(58, 106, 22, 22);
+  c.strokeRect(122, 106, 22, 22);
+  line(c, 69, 106, 69, 128, "#ffffff", 2);
+  line(c, 58, 117, 80, 117, "#ffffff", 2);
+  line(c, 133, 106, 133, 128, "#ffffff", 2);
+  line(c, 122, 117, 144, 117, "#ffffff", 2);
+}
+
+function sailboat(c) {
+  const g = c.createLinearGradient(0, 0, 0, 200);
+  g.addColorStop(0, "#9ad8ee");
+  g.addColorStop(1, "#e8f7fb");
+  c.fillStyle = g;
+  c.fillRect(0, 0, 200, 200);
+  circle(c, 160, 40, 20, "#f6c755");
+  c.fillStyle = "#1e88c9";
+  c.fillRect(0, 135, 200, 65);
+  c.strokeStyle = "#8fd0f0";
+  c.lineWidth = 3;
+  for (let x = 10; x < 200; x += 40) {
+    c.beginPath();
+    c.arc(x, 165, 10, Math.PI, 0);
+    c.arc(x + 20, 165, 10, Math.PI, 0);
+    c.stroke();
+  }
+  line(c, 100, 38, 100, 132, "#7f685f", 4);
+  poly(c, [[105, 44], [105, 122], [152, 122]], "#ffffff");
+  poly(c, [[95, 62], [95, 122], [52, 122]], "#ef9a8f");
+  poly(c, [[100, 38], [100, 50], [118, 44]], "#ec4540");
+  c.beginPath();
+  c.moveTo(42, 128);
+  c.lineTo(158, 128);
+  c.lineTo(138, 158);
+  c.lineTo(62, 158);
+  c.closePath();
+  c.fillStyle = "#7f685f";
+  c.fill();
+  c.fillStyle = "#f6c755";
+  c.fillRect(50, 132, 100, 5);
+}
+
+function tree(c) {
+  c.fillStyle = "#e9f5e1";
+  c.fillRect(0, 0, 200, 200);
+  circle(c, 40, 38, 18, "#f6c755");
+  c.beginPath();
+  c.ellipse(100, 178, 85, 18, 0, 0, Math.PI * 2);
+  c.fillStyle = "#7cc27a";
+  c.fill();
+  c.fillStyle = "#7f685f";
+  c.fillRect(90, 108, 20, 68);
+  poly(c, [[90, 140], [74, 124], [78, 120], [90, 130]], "#7f685f");
+  poly(c, [[110, 130], [128, 114], [124, 110], [110, 122]], "#7f685f");
+  circle(c, 70, 100, 30, "#3f9d4f");
+  circle(c, 130, 100, 30, "#3f9d4f");
+  circle(c, 100, 70, 40, "#52b563");
+  circle(c, 100, 105, 28, "#52b563");
+  circle(c, 85, 60, 6, "#ec4540");
+  circle(c, 118, 82, 6, "#ec4540");
+  circle(c, 72, 100, 6, "#ec4540");
+  circle(c, 132, 105, 6, "#ec4540");
+  circle(c, 100, 112, 6, "#ec4540");
+}
+
+function cat(c) {
+  c.fillStyle = "#fde8d0";
+  c.fillRect(0, 0, 200, 200);
+  poly(c, [[44, 82], [50, 22], [96, 52]], "#e08a2f");
+  poly(c, [[156, 82], [150, 22], [104, 52]], "#e08a2f");
+  poly(c, [[56, 70], [58, 40], [82, 56]], "#f4a7b5");
+  poly(c, [[144, 70], [142, 40], [118, 56]], "#f4a7b5");
+  circle(c, 100, 112, 62, "#f0a04b");
+  line(c, 100, 52, 100, 70, "#e08a2f", 6);
+  line(c, 80, 56, 84, 72, "#e08a2f", 5);
+  line(c, 120, 56, 116, 72, "#e08a2f", 5);
+  c.beginPath();
+  c.ellipse(100, 138, 30, 22, 0, 0, Math.PI * 2);
+  c.fillStyle = "#fde8d0";
+  c.fill();
+  c.beginPath();
+  c.ellipse(76, 104, 14, 16, 0, 0, Math.PI * 2);
+  c.ellipse(124, 104, 14, 16, 0, 0, Math.PI * 2);
+  c.fillStyle = "#ffffff";
+  c.fill();
+  circle(c, 76, 106, 10, "#54b3b1");
+  circle(c, 124, 106, 10, "#54b3b1");
+  c.fillStyle = "#1f2a44";
+  c.fillRect(74, 96, 4, 20);
+  c.fillRect(122, 96, 4, 20);
+  poly(c, [[92, 126], [108, 126], [100, 136]], "#e8687a");
+  c.strokeStyle = "#7f685f";
+  c.lineWidth = 2.5;
+  c.lineCap = "round";
+  c.beginPath();
+  c.moveTo(100, 136);
+  c.lineTo(100, 142);
+  c.moveTo(88, 148);
+  c.quadraticCurveTo(100, 154, 100, 142);
+  c.quadraticCurveTo(100, 154, 112, 148);
+  c.stroke();
+  line(c, 70, 138, 30, 130, "#7f685f", 2);
+  line(c, 70, 146, 30, 148, "#7f685f", 2);
+  line(c, 130, 138, 170, 130, "#7f685f", 2);
+  line(c, 130, 146, 170, 148, "#7f685f", 2);
+}
+
+function umbrella(c) {
+  c.fillStyle = "#d7e3f4";
+  c.fillRect(0, 0, 200, 200);
+  const drops = [[25, 40], [60, 20], [150, 30], [175, 60], [30, 100], [172, 112], [45, 160], [155, 165], [120, 15]];
+  drops.forEach(function (d) {
+    c.beginPath();
+    c.ellipse(d[0], d[1], 3, 7, 0.2, 0, Math.PI * 2);
+    c.fillStyle = "#6fa8dc";
+    c.fill();
+  });
+  c.beginPath();
+  c.arc(100, 100, 72, Math.PI, 0);
+  c.closePath();
+  c.fillStyle = "#ec4540";
+  c.fill();
+  c.beginPath();
+  c.moveTo(100, 28);
+  c.quadraticCurveTo(78, 60, 64, 100);
+  c.lineTo(100, 100);
+  c.closePath();
+  c.fillStyle = "#f6c755";
+  c.fill();
+  c.beginPath();
+  c.moveTo(100, 28);
+  c.quadraticCurveTo(122, 60, 136, 100);
+  c.lineTo(100, 100);
+  c.closePath();
+  c.fillStyle = "#f6c755";
+  c.fill();
+  c.fillStyle = "#ec4540";
+  for (let i = 0; i < 4; i++) {
+    c.beginPath();
+    c.arc(46 + i * 36, 100, 18, Math.PI, 0, true);
+    c.closePath();
+    c.fill();
+  }
+  circle(c, 100, 26, 5, "#7f685f");
+  line(c, 100, 100, 100, 158, "#7f685f", 5);
+  c.beginPath();
+  c.arc(111, 158, 11, Math.PI, Math.PI * 0.5, true);
+  c.strokeStyle = "#7f685f";
+  c.lineWidth = 5;
+  c.lineCap = "round";
+  c.stroke();
+}
+
+function lighthouse(c) {
+  const g = c.createLinearGradient(0, 0, 0, 200);
+  g.addColorStop(0, "#2c3e75");
+  g.addColorStop(1, "#f0a4a0");
+  c.fillStyle = g;
+  c.fillRect(0, 0, 200, 200);
+  circle(c, 40, 40, 2.5, "#ffffff");
+  circle(c, 160, 24, 2.5, "#ffffff");
+  circle(c, 70, 70, 2, "#ffffff");
+  circle(c, 20, 90, 2, "#ffffff");
+  c.fillStyle = "#1f4f7a";
+  c.fillRect(0, 168, 200, 32);
+  c.globalAlpha = 0.45;
+  poly(c, [[100, 60], [200, 28], [200, 88]], "#f6e08a");
+  poly(c, [[100, 60], [0, 28], [0, 88]], "#f6e08a");
+  c.globalAlpha = 1;
+  c.beginPath();
+  c.ellipse(100, 172, 56, 14, 0, 0, Math.PI * 2);
+  c.fillStyle = "#7f685f";
+  c.fill();
+  poly(c, [[78, 172], [122, 172], [112, 72], [88, 72]], "#ffffff");
+  poly(c, [[85.6, 100], [114.4, 100], [113.2, 85], [86.8, 85]], "#ec4540");
+  poly(c, [[81.6, 140], [118.4, 140], [117.2, 125], [82.8, 125]], "#ec4540");
+  c.fillStyle = "#3b2f2b";
+  c.fillRect(82, 66, 36, 8);
+  c.fillStyle = "#f6c755";
+  c.fillRect(88, 48, 24, 18);
+  poly(c, [[84, 48], [100, 32], [116, 48]], "#ec4540");
+  rrect(c, 95, 150, 10, 22, 4, "#7f685f");
+}
+
+function robot(c) {
+  c.fillStyle = "#e3eef0";
+  c.fillRect(0, 0, 200, 200);
+  line(c, 100, 22, 100, 44, "#7f685f", 4);
+  circle(c, 100, 20, 7, "#ec4540");
+  rrect(c, 42, 66, 14, 30, 4, "#bfb2ac");
+  rrect(c, 144, 66, 14, 30, 4, "#bfb2ac");
+  rrect(c, 52, 42, 96, 76, 14, "#54b3b1");
+  circle(c, 78, 72, 14, "#ffffff");
+  circle(c, 122, 72, 14, "#ffffff");
+  circle(c, 80, 74, 7, "#1f2a44");
+  circle(c, 124, 74, 7, "#1f2a44");
+  rrect(c, 76, 96, 48, 14, 5, "#1f2a44");
+  c.fillStyle = "#ffffff";
+  c.fillRect(86, 98, 6, 10);
+  c.fillRect(97, 98, 6, 10);
+  c.fillRect(108, 98, 6, 10);
+  rrect(c, 90, 118, 20, 8, 2, "#7f685f");
+  rrect(c, 62, 126, 76, 56, 10, "#f6c755");
+  circle(c, 84, 148, 8, "#ec4540");
+  circle(c, 116, 148, 8, "#54b3b1");
+  rrect(c, 80, 164, 40, 8, 3, "#7f685f");
+  line(c, 62, 138, 38, 160, "#7f685f", 7);
+  line(c, 138, 138, 162, 160, "#7f685f", 7);
+  circle(c, 36, 163, 8, "#ef9a8f");
+  circle(c, 164, 163, 8, "#ef9a8f");
+}
+
+const arts = [
+  ["1. Rocket", rocket],
+  ["2. House", house],
+  ["3. Sailboat", sailboat],
+  ["4. Tree", tree],
+  ["5. Cat", cat],
+  ["6. Umbrella", umbrella],
+  ["7. Lighthouse", lighthouse],
+  ["8. Robot", robot]
+];
+
+const gallery = document.getElementById("gallery");
+
+arts.forEach(function (art) {
+  const figure = document.createElement("figure");
+  const canvas = document.createElement("canvas");
+  canvas.width = 200;
+  canvas.height = 200;
+  const caption = document.createElement("figcaption");
+  caption.textContent = art[0];
+  figure.appendChild(canvas);
+  figure.appendChild(caption);
+  gallery.appendChild(figure);
+  art[1](canvas.getContext("2d"));
+});
+</script>
+</body>
+</html>
